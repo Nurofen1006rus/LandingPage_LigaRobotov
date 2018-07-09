@@ -2,6 +2,12 @@
  	General
 -------------*/
 
+@font-face {
+    font-family: "Play";
+    src: url("../font/play.regular.ttf"); format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
 *{
 	margin: 0;
 	padding: 0;
@@ -10,7 +16,7 @@
 html{
 	font: normal 16px sans-serif;
 	color: #555;
-	font-family:'Lato',sans-serif;
+    font-family: 'Play', sans-serif;
 }
 ul, nav{
 	list-style: none;
@@ -45,24 +51,9 @@ section{
 	align-items: center;
 	padding: 125px 100px;
 }
-@media (max-width: 1000px){
-
-	section{
-		padding: 100px 50px;
-	}
-
-}
-@media (max-width: 600px){
-
-	section{
-		padding: 80px 30px;
-	}
-
-}
 section h3.title{
 	color: #414a4f;
-	text-transform: capitalize; 
-	font: bold 32px 'Open Sans', sans-serif;
+	text-transform: capitalize;
 	margin-bottom: 35px;
 	text-align: center;
 }
@@ -85,7 +76,7 @@ ul.grid{
 -------------*/
 
 header{
-    background-color: #555555;
+    background-color: #476060;
 	opacity: 1;
 	position: fixed;
 	top: 0;
@@ -97,6 +88,7 @@ header{
 	align-items: center;
 	color: #000;
 	padding: 1% 10% 1% 10%;
+  transition: 0.5s;
 }
 header h2 img{
 	width: 300px;
@@ -112,28 +104,35 @@ header nav li{
 	display: inline-block;
 }
 header nav li:first-child{
-	margin-left: 0;	
+	margin-left: 0;
 }
 header nav li:last-child{
-	margin-right: 0;	
+	margin-right: 0;
 }
 header nav li a:hover{
 	color: red;
 }
-@media (max-width: 1000px){
-	header{
-		padding: 20px 50px;
-	}
+.scroll{
+  padding: 0.5% 10%;
+  transition: 0.5s;
 }
-@media (max-width: 700px){
-	header{
-		flex-direction: column;		
-	}
+/*----------------
+ 	Slider-section
+----------------*/
 
-	header h2{
-		margin-bottom: 15px;
-	}
+@import url(https://meyerweb.com/eric/tools/css/reset/reset.css);
+
+.slider{
+  width: 100%;
 }
+.slider section{
+  display: block;
+  width: 100%;
+  transition: 0.1;
+  overflow: hidden;
+  z-index: -20;
+}
+
 
 /*----------------
  	First-section
@@ -166,130 +165,81 @@ header nav li a:hover{
 	opacity: 0.75;
 }
 .first-section h1{
-	font: bold 60px 'Open Sans', sans-serif;
+    font-size: 58px;
 	margin-bottom: 15px;
 }
 .first-section h3{
-	font: normal 28px 'Open Sans', sans-serif;
+    font-size: 36px;
 	margin-bottom: 40px;
 }
 .first-section a.btn{
 	padding: 20px 46px;
 }
-@media (max-width: 800px){
-	.first-section{
-		min-height: 600px;
-	}
-	.first-section h1{
-		font-size: 48px;
-	}
-	.first-section h3{
-		font-size: 24px;
-	}
-	.first-section a.btn{
-		padding: 15px 40px;
-	}
-}
 
 /*--------------------
- 	Image-section
+ 	Content-section
 ---------------------*/
 
-.grid{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.large{
-    min-height: 0;
-    margin: 5px;
-}
-.large img{
-    width: 430px;
-    max-width: 100%;
-    max-height: 430px;
 
+#c1{
+    background: #1531AE;
 }
-.img-section{
-	background-color: #fff;
+#c2{
+    background: #FFB400;
 }
-@media (max-width: 1000px){
-	.img-section .grid .top-img .small,
-	.img-section .grid .top-img .large{
-		flex-basis: 100%;
-	}
+#c3{
+    background: #E40045;
 }
-
-/*----------------------
- 	Features Section
-----------------------*/
-
-.features{
-	background-color: #f7f7f7;
+#c4{
+    background: #67E300;
 }
-.features .grid div{
-	padding: 0 30px;
-	flex-basis: 33%;
-	text-align: center;
+.content{
+    color: #000;
+    display: block;
+    padding: 80px 100px;
 }
-.features .grid li i{
-    font-size: 50px;
-    color: #2196F3;
-    margin-bottom: 25px;
+.background-img-left{
+    text-align: left;
 }
-.features .grid li h4{
-	color: #555;
-    font-size: 20px;
-    margin-bottom: 25px;
-}
-.features .grid li p{
-    margin: 0;
-}
-@media (max-width: 1000px){
-	.features .grid li{
-		flex-basis: 70%;
-		margin-bottom: 65px;
-	}
-	.features .grid li:last-child{
-		margin-bottom: 0;
-	}
-}
-@media (max-width: 600px){
-	.features .grid li{
-		flex-basis: 100%;
-	}
+.background-img-right{
+    text-align: right;
 }
 
-/*--------------------
- 	Youtube-content Section
---------------------*/
-
-.youtube-content{
-	background-color: #fff;
+.content-snippet{
+    display: inline-block;
 }
-.youtube-content .quote{
-	text-align: center;
-	width: 80%;
+#bottomdiv{
+    text-align: left;
+}
+.content h1{
+    font-size: 42px;
+    line-height: 1.15;
+    text-align: left;
+    margin: 10px 0 50px 0;
+}
+.content h3{
     font-size: 22px;
-    font-weight: 300;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    padding: 0;
+    margin-top: 45px;
 }
-.youtube-content .author{
-    font-size: 18px;
-    margin-bottom: 50px;
+.content-snippet img{
+    width: 60px;
+    height: 60px;
+    display: block;
 }
-.youtube-content .author:last-child{
-    margin-bottom: 0;
+.snip{
+    display: flex;
+    margin: 5px 20px 35px 0;
 }
-@media (max-width: 1000px){
-	.youtube-content .quote{
-		font-size: 20px;
-	}
-	.youtube-content .author{
-	    font-size: 16px;
-	}
+.snip p{
+    margin-top: 5px;
+    text-align: left;
+}
+.description{
+    display: block;
+    width: 200px;
+    height: 20px;
+    word-wrap: break-word;
+    line-height: 1.3;
 }
 
 /*---------------------
@@ -317,12 +267,6 @@ header nav li a:hover{
 .contact form .btn{
 	padding: 18px 42px;
 }
-@media (max-width: 800px){
-	.contact form input{
-		flex-basis: 100%;
-		margin: 0 0 20px 0;
-	}
-}
 
 /*-------------
  	Footer
@@ -343,13 +287,13 @@ footer ul{
 	font-size: 32px;
 }
 footer ul li{
-	margin: 0 8px;	
+	margin: 0 8px;
 }
 footer ul li:first-child{
-	margin-left: 0;	
+	margin-left: 0;
 }
 footer ul li:last-child{
-	margin-right: 0;	
+	margin-right: 0;
 }
 footer p{
 	text-transform: uppercase;
@@ -360,27 +304,28 @@ footer p{
 footer p a{
 	color: #fff;
 }
-@media (max-width: 700px){
-	footer{
-		padding: 80px 15px;
-	}
-}
 
 /*-----------------
     Scroll-button
 -----------------*/
 
 #btn-top{
-    width: 100px;
-    border: 1px solid #ccc;
-    background: #f7f7f7;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    border-radius: 50px;
     text-align: center;
-    padding: 5px;
     position: fixed;
-    bottom: 10px;
-    right: 10px;
-    cursor: pointer;
+    bottom: 20px;
+    right: 20px;
     display: none;
-    color: #333;
-    font-size: 11px;
+    color: #000;
+    font-size: 40px;
+}
+#btn-top img{
+    width: 45px;
+}
+#btn-top:hover{
+    cursor: pointer;
+    background: red;
 }

@@ -1,26 +1,30 @@
-$(document).ready(function(){
-    $(window).on("scroll",function(){
-        if ($(document).scrollTop()>30) {
-            $("header").animate({padding: '0.5% 10%'});
+var cbpAnimatedHeader = (function() {
+    var docElem = document.documentElement,
+        header = document.querySelector( '.header' ),
+        didScroll = false,
+        changeHeaderOn = 520;
+    function init() {
+        window.addEventListener( 'scroll', function( event ) {
+            if( !didScroll ) {
+                didScroll = true;
+                setTimeout( scrollPage, 260 );
+            }
+        }, false );
+    }
+    function scrollPage() {
+        var sy = scrollY();
+        var element = document.getElementById("header");
+        if ( sy >= changeHeaderOn ) {
+          $("header").addClass("scroll");
+
         }
-        if ($(document).scrollTop()<30) {
-            $("header").animate({padding: '1% 10%'});
+        else {
+            $("header").removeClass("scroll");
         }
-    });
-
-
-
-    var lastScrollTop = 0;
-    $(window).scroll(function(event){
-        var st = $(this).scrollTop();
-        if (st > lastScrollTop){
-            // downscroll code
-        } else {
-            // upscroll code
-        }
-        lastScrollTop = st;
-    });
-
-
-});
-
+        didScroll = false;
+    }
+    function scrollY() {
+        return window.pageYOffset || docElem.scrollTop;
+    }
+    init();
+})();
